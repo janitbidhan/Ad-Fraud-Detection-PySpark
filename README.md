@@ -33,7 +33,7 @@
 
 		ScreenShots/
 			1-running-on-persues-errors.png
-			2-running-on-emr-.png
+			2-running-on-emr.png
 		
 
 		Presentation.pdf
