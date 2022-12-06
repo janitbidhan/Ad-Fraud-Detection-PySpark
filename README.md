@@ -36,7 +36,7 @@
 			2-running-on-emr-.png
 		
 
-		Presentation.ppt
+		Presentation.pdf
 		README.md
 		REPORT.pdf
 		video_presentation_link.txt 
