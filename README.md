@@ -4,8 +4,8 @@
 
 
 ### Team : 
-- **Janit Bidhan** - [jbidhan@gmu.edu](jbidhan@gmu.edu)
-- **Sreenivasa Rayaprolu** - [srayapr@gmu.edu](srayapr@gmu.edu)
+**Janit Bidhan** - [jbidhan@gmu.edu](jbidhan@gmu.edu)
+**Sreenivasa Rayaprolu** - [srayapr@gmu.edu](srayapr@gmu.edu)
 
 ### Contents of README.md 
  - Folder Structure
@@ -38,12 +38,6 @@
 			7.Databricks-Cluster-configuration
 			8.Databricks-WorkSpace.png
 			9.Databricks-python-notebook.png
-<<<<<<< HEAD
-
-		
-
-=======
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
 		Presentation.pdf
 		README.md
 		REPORT.pdf
@@ -52,13 +46,8 @@
 
 ### Downloading Dataset:
 	
-<<<<<<< HEAD
-	- Create a account in www.kaggle.com
-	- Go to https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/data for downloading the data.
-=======
 - Create a account in [www.kaggle.com](www.kaggle.com)
 - Go to [https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/data](https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/data) for downloading the data.
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
 
 
 ### Code Files Description: 
@@ -66,11 +55,7 @@
 - ```csv_to_parquet.ipynb``` and ```csv_to_parquet.py```: 
 		This file converts .csv file to .parquet file and saves it in desired location.
 
-<<<<<<< HEAD
-	- Ad_Fraud_with_RF-LR-LSVC.ipynb and Ad_Fraud_with_RF-LR-LSVC.py:
-=======
 - ```Ad_Fraud_with_RF-LR-LSVC.ipynb``` and ```Ad_Fraud_with_RF-LR-LSVC.py```:
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
 		This is the code file which implements Logistic Regression, Random Forrest, LinearSVC classification models with different sampling techniques.
 
 - ```Ad_Fraud_with_CatBoost.ipynb``` and ```Ad_Fraud_with_CatBoost.py``` : 
@@ -81,12 +66,6 @@
 
 
 ### Order of Running the code:
-<<<<<<< HEAD
-	- 1st : Run csv_to_parquet.py with spark-submit csv_to_parquet.py command
-	- 2nd : Run Ad_Fraud_with_RF-LR-LSVC.py with spark-submit Ad_Fraud_with_RF-LR-LSVC.py command.
-	- 3rd : Run Ad_Fraud_with_CatBoost.py with spark-submit Ad_Fraud_with_CatBoost.py command.
-	- 4th : Run Ad_Fraud_with_LightGBM.py with spark-submit Ad_Fraud_with_LightGBM.py command.
-=======
 - 1st : Run csv_to_parquet.py with ```spark-submit csv_to_parquet.py``` command
 - 2nd : Run Ad_Fraud_with_RF-LR-LSVC.py with ```spark-submit Ad_Fraud_with_RF-LR-LSVC.py``` command.
 - 3rd : Run Ad_Fraud_with_CatBoost.py with ```spark-submit Ad_Fraud_with_CatBoost.py``` command.
@@ -97,25 +76,10 @@
 ## Cluster creations to Run the code
 * Submitted python files can be run on any cluster. 
 * We tested our python files on Persues Cluster, Amazon ElasticMapReduce Cluster, Databricks Cluster.
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
 
 
 ### Instructions to Create Cluster on AWS ElasticMapReduce and run code :
 	
-<<<<<<< HEAD
-	- Create an AWS account.
-	- Create a new AWS VPC for this project. 
-	- Configure a culster with Spark-3.0.2 installed on Hadoop-2.7
-	- Use mx2.large machine to create the cluster. By default it create 1 master node(8GB memory) and 2 worker nodes(8GB memory on each). 
-	- It is recommmended to have above architecture of cluster to be able to run the python files.
-	- Generate SSH Keys for using the cluster and save it in secure folder.
-	- Update the security Inbound rules of the cluster to include you IP address.
-	- Create a new S3 storage Bucket and upload the dataset.
-	- Use SSH keys and Public IP Address of the cluster with puTTY or terminal depending on the operating system to SSH into created cluster.
-	- Use any file tranfer application application, to move python files in to EMR Cluster. 
-	- You can use AWS Cloud9 environment to SSH into cluster and run the code
-	- Use spark-submit file_name.py to run pyspark code. 
-=======
 - Create an AWS account.
 - Create a new AWS VPC for this project. 
 - Configure a culster with Spark-3.0.2 installed on Hadoop-2.7
@@ -129,45 +93,21 @@
 - Use any file tranfer application application, to move python files in to EMR Cluster. 
 - You can use AWS Cloud9 environment to SSH into cluster and run the code
 - Use ```spark-submit file_name.py``` to run pyspark code. 
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
 
 
 ### Instructions to Create Cluster on Databricks and run it:
 	
-<<<<<<< HEAD
-	- Create a Databricks account.
-	- In Compute section create a cluster with above mentioned configuration.
-	- In Workspace section you can can upload the Jupyter Notebooks or python files.
-	- Go the required file and attach the created spark cluster to the workspace environment.
-	- For running code use ```spark-submit file_name.py``` in the terminal.
-=======
 - Create a Databricks account.
 - In Compute section create a cluster with above mentioned configuration.
 - Refer to Screenshots for detailed cluster configuration.
 - In Workspace section you can can upload the Jupyter Notebooks or python files.
 - Go the required file and attach the created spark cluster to the workspace environment.
 - For running code use ```spark-submit file_name.py``` in the terminal.
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
 
 
 
 ### Instructions to Run Code and Infer Results on Persues
 
-<<<<<<< HEAD
-	Submitted python files can be run on any cluster. 
-	We tested our python files on Persues Cluster, Amazon ElasticMapReduce Cluster, Databricks Cluster.
-
-	To run files on Persues Cluster.
-		1. SSH into Persues cluster with GMU ID and patriot password.
-		2. Load files dataset and python files using a file transfering application. (csv_to_parquet.py, Ad_Fraud_with_RF-LR-LSVC, Ad_Fraud_with_CatBoost.py and Ad_Fraud_with_LightGBM.py ) 
-		3. Update the file paths accordingly on all the python files.
-		4. use Spark-submit file_name.py to run and infer the results. 
-
-
-### Results in Jupyter Notebooks
-	- Submitted Jupyter notebooks have results saved in them. 
-	- Jupyter Notebooks can be used to for quick inference of results.
-=======
 - SSH into Persues cluster with GMU ID and patriot password.
 -  Load files dataset and python files using a file transfering application. (csv_to_parquet.py, Ad_Fraud_with_RF-LR-LSVC, Ad_Fraud_with_CatBoost.py and Ad_Fraud_with_LightGBM.py ) 
 - Update the file paths accordingly on all the python files.
@@ -177,4 +117,3 @@
 ### Results in Jupyter Notebooks
 - Submitted Jupyter notebooks have results saved in them. 
 - Jupyter Notebooks can be used to for quick inference of results.
->>>>>>> 8e6da0789fea1d50621245139c52d48e2502b207
