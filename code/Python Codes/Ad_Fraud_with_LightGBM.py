@@ -11,23 +11,23 @@ Original file is located at
 
 1.   **Installing OpenJDK-8**
 2.   **Installing Spark-3.0.3 on Hadoop-2.7**
-3.   **Installing CatBoost Machine Learning Model**
+3.   **Installing LightGBM Machine Learning Model**
 4.   **Setting up *JAVA_HOME* and *SPARK_HOME***
 5.   **Defining Spark Session**
-6.   **Adding CatBoost Model's Jar Files to Spark Context.**
+6.   **Adding LightJBM Model's Jar Files to Spark Context.**
 """
 
-!apt-get install openjdk-8-jdk-headless -qq > /dev/null
-!wget -q https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz
-!tar xf spark-3.0.3-bin-hadoop2.7.tgz
+# !apt-get install openjdk-8-jdk-headless -qq > /dev/null
+# !wget -q https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz
+# !tar xf spark-3.0.3-bin-hadoop2.7.tgz
 
-import os
-os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
-os.environ["SPARK_HOME"] = "/content/spark-3.0.3-bin-hadoop2.7"
-!pip install -q findspark==1.4.2
+# import os
+# os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
+# os.environ["SPARK_HOME"] = "/content/spark-3.0.3-bin-hadoop2.7"
+# !pip install -q findspark==1.4.2
 
-import findspark
-findspark.init()
+# import findspark
+# findspark.init()
 
 import pyspark
 from pyspark.sql import SparkSession
@@ -46,8 +46,8 @@ spark
 """
 
 #Libraries for Visualization purposesly
-!pip install seaborn
-!pip install prettytable
+# !pip install seaborn
+# !pip install prettytable
 
 #Imports
 from pyspark.sql.functions import row_number, count, isnan, countDistinct

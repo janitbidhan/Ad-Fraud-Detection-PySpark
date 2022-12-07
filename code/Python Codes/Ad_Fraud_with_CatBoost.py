@@ -9,8 +9,7 @@ Original file is located at
 **Connect with Google Drive for loading Data.**
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
+
 
 """
 1.   **Installing OpenJDK-8**
@@ -20,16 +19,16 @@ drive.mount('/content/drive')
 5.   **Defining Spark Session**
 6.   **Adding CatBoost Model's Jar Files to Spark Context.**"""
 
-!apt-get install openjdk-8-jdk-headless -qq > /dev/null
-!wget -q https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz
-!tar xf spark-3.0.3-bin-hadoop2.7.tgz
-!pip install -q findspark==1.4.2 catboost==1.0.3
+# !apt-get install openjdk-8-jdk-headless -qq > /dev/null
+# !wget -q https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop2.7.tgz
+# !tar xf spark-3.0.3-bin-hadoop2.7.tgz
+# !pip install -q findspark==1.4.2 catboost==1.0.3
 
-import os
-os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
-os.environ["SPARK_HOME"] = "/content/spark-3.0.3-bin-hadoop2.7"
-import findspark
-findspark.init()
+# import os
+# os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
+# os.environ["SPARK_HOME"] = "/content/spark-3.0.3-bin-hadoop2.7"
+# import findspark
+# findspark.init()
 
 from pyspark.sql import SparkSession
 spark = SparkSession.builder\
@@ -55,8 +54,8 @@ spark
 """
 
 #Installing Visualization Libraries Seaborn and PrettyTable
-!pip install seaborn
-!pip install prettytable
+# !pip install seaborn
+# !pip install prettytable
 
 #IMPORTS
 from pyspark.sql.functions import row_number, count, isnan, countDistinct

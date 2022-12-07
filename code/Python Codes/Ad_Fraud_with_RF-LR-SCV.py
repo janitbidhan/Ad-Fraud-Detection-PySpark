@@ -9,22 +9,24 @@ Original file is located at
 **Connect with Google Drive for loading Data.**
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
+# from google.colab import drive
+# drive.mount('/content/drive')
 
-"""**Defining Spark Session**"""
+# """**Defining Spark Session**"""
 
-!pip install pyspark
-import pyspark
+# !pip install pyspark
+# import pyspark
 from pyspark.sql import SparkSession
-spark = SparkSession.builder.config("spark.driver.memory", "25g").\
-config('spark.executor.memory', '25G').\
-config('spark.driver.maxResultSize', '25G').\
-appName("MapReduce-Project-Fraud-Analysis").getOrCreate()
-spark.conf.set('spark.sql.pivotMaxValues', u'1000000')
-spark.conf.set("spark.sql.autoBroadcastJoinThreshold", "-1")
-spark.conf.set("spark.sql.inMemoryColumnarStorage.compressed", True)
-spark.conf.set("spark.sql.inMemoryColumnarStorage.batchSize",10000)
+spark = SparkSession.builder.appName("MapReduce-Project-Fraud-Analysis").getOrCreate() 
+spark.sparkContext.setLogLevel("ERROR")
+
+#config('spark.executor.memory', '25G').\
+#config('spark.driver.maxResultSize', '25G').\
+
+#spark.conf.set('spark.sql.pivotMaxValues', u'1000000')
+#spark.conf.set("spark.sql.autoBroadcastJoinThreshold", "-1")
+#spark.conf.set("spark.sql.inMemoryColumnarStorage.compressed", True)
+#spark.conf.set("spark.sql.inMemoryColumnarStorage.batchSize",10000)
 
 spark
 
@@ -35,8 +37,8 @@ spark
 """
 
 #Libraries for Visualization purposesly
-!pip install seaborn
-!pip install prettytable
+# !pip install seaborn
+# !pip install prettytable
 
 #Imports
 from pyspark.sql.functions import row_number, count, isnan, countDistinct
@@ -59,12 +61,12 @@ from pyspark.mllib.evaluation import BinaryClassificationMetrics
 from pyspark.mllib.evaluation import MulticlassMetrics
 from pyspark.ml.classification import *
 from pyspark.ml.evaluation import *
-from prettytable import PrettyTable
+#from prettytable import PrettyTable
 
 #For visualization purposes only
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
 """# Data Stats Functions
 
@@ -496,11 +498,11 @@ def diffSampledData(data, isUnderSample=False,isOverSample=False ,isSMOTE=False,
 def filldetails(analysisTable, predictions, sampling, model):
     cf_matrix, ROC, accuracy, F1, precision, recall = getEvalutions(predictions)
     print(sampling, model, ROC, accuracy, F1, precision, recall, cf_matrix)
-    analysisTable.add_row([sampling, model, ROC, accuracy, F1, precision, recall, cf_matrix])
+    analysisTable+=str(sampling) +" , "+ str(model)+" , "+ str(ROC)+" , "+ str(accuracy)+" , "+str(F1)+" , "+ str(precision)+" , "+ str(recall)+" , "+str(cf_matrix)
     
 def getResults(sampledData, test, isLR=False, isRF=False, isLSVC=False, isCatBoost=False, isLightGBM=False,isCV=False):
     # Specify the Column Names while initializing the Table
-    analysisTable = PrettyTable(["Sampling", "Model", "ROC", "accuracy", "F1", "precision", "recall", "Matrix"])
+    analysisTable = "\n\n\nOutputs\n"
     results = {}
     testData = getFeaturesData(test, drop=True)
     testData.cache()
@@ -526,6 +528,7 @@ def getResults(sampledData, test, isLR=False, isRF=False, isLSVC=False, isCatBoo
         if len(res.keys())>1:
             results[sampling] = res
         print("<<<<<<<<<<<<<<Finished :", sampling)
+        analysisTable=None
     return results, analysisTable
 
 
@@ -583,35 +586,35 @@ def demoData(path="../Data/train_sample.csv"):
     print("\n________________RESULTS______________\n",analysisTable)
     return results, analysisTable
 
-resultsDemo, analysisTableDemo= demoData(path='/content/drive/MyDrive/Final Project CS 657/talkingdata-adtracking-fraud-detection/train_sample.csv')
+resultsDemo, analysisTableDemo= demoData(path='train_sample.csv')
 
 """## 6 Million Records
 **Training and Testing on sampled 6 Million records from train.csv**
 """
 
-def RUN6MTEST(path="../Data/Sampled_data.parquet"):
-    dataDownload=spark.read.parquet(path)
-    getCompleteSummary(dataDownload)
-    trainSample,testSample=stratifiedTrainTestSplit(dataDownload, ifprint=False)
-    sampledData=diffSampledData(trainSample, isUnderSample=False,isOverSample=False,isSMOTE=True, ifprint=False)
-    results, analysisTable= getResults(sampledData,testSample,isLR=False, isRF=True, isLSVC=False)
-    print("\n________________RESULTS______________\n",analysisTable)
-    return results, analysisTable
+# def RUN6MTEST(path="../Data/Sampled_data.parquet"):
+#     dataDownload=spark.read.parquet(path)
+#     getCompleteSummary(dataDownload)
+#     trainSample,testSample=stratifiedTrainTestSplit(dataDownload, ifprint=False)
+#     sampledData=diffSampledData(trainSample, isUnderSample=False,isOverSample=False,isSMOTE=True, ifprint=False)
+#     results, analysisTable= getResults(sampledData,testSample,isLR=False, isRF=True, isLSVC=False)
+#     print("\n________________RESULTS______________\n",analysisTable)
+#     return results, analysisTable
 
-results6M, analysisTable6M= RUN6MTEST()
+# results6M, analysisTable6M= RUN6MTEST()
 
-"""## 26 Million Records
-**Training and Testing on sampled 26 Million records from train.csv**
+# """## 26 Million Records
+# **Training and Testing on sampled 26 Million records from train.csv**
 
-"""
+# """
 
-def RUN26MTEST(path="../Data/Sampled25M.parquet"):
-    dataDownload=spark.read.parquet(path)
-    getCompleteSummary(dataDownload)
-    trainSample,testSample=stratifiedTrainTestSplit(dataDownload, ifprint=False)
-    sampledData=diffSampledData(trainSample, isUnderSample=False,isOverSample=True, ifprint=False)
-    results, analysisTable= getResults(sampledData,testSample,isLR=False, isRF=True, isLSVC=False)
-    print("\n________________RESULTS______________\n",analysisTable)
-    return results, analysisTable
+# def RUN26MTEST(path="../Data/Sampled25M.parquet"):
+#     dataDownload=spark.read.parquet(path)
+#     getCompleteSummary(dataDownload)
+#     trainSample,testSample=stratifiedTrainTestSplit(dataDownload, ifprint=False)
+#     sampledData=diffSampledData(trainSample, isUnderSample=False,isOverSample=True, ifprint=False)
+#     results, analysisTable= getResults(sampledData,testSample,isLR=False, isRF=True, isLSVC=False)
+#     print("\n________________RESULTS______________\n",analysisTable)
+#     return results, analysisTable
 
-results26M, analysisTable26M= RUN26MTEST()
+# results26M, analysisTable26M= RUN26MTEST()
