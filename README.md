@@ -5,7 +5,7 @@
 
 
 ### Team : 
-		- Janit Bidhan <jbidhan@gmu.edu>
+		- Janit Bidhan [jbidhan@gmu.edu](jjj)
 		- Sreenivasa Rayaprolu <srayapr@gmu.edu>
 
  #### Contents of README.md 
