@@ -32,8 +32,16 @@
 				csv_to_parquet.py
 
 		ScreenShots/
-			1-running-on-persues-errors.png
-			2-running-on-emr.png
+			1.VPC-Creation.png
+			2.EMR-Cluster-creation.png
+			3.EMR-Cluster-configuration.png
+			4.Persues-Command.png
+			5.Persues-cluster-output.png
+			6.Databricks-Loading-JarFiles.png
+			7.Databricks-Cluster-configuration
+			8.Databricks-WorkSpace.png
+			9.Databricks-python-notebook.png
+
 		
 
 		Presentation.pdf
@@ -42,12 +50,18 @@
 		video_presentation_link.txt 
 ```
 
+### Downloading Dataset:
+	
+	- Create a account in www.kaggle.com
+	- Go to https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/data for downloading the data.
+
+
 ### Code Files Description: 
 
 	- csv_to_parquet.ipynb and csv_to_parquet.py: 
 		This file converts .csv file to .parquet file and saves it in desired location.
 
-	- Ad_Fraud_with_RF-LR-SCV.ipynb and Ad_Fraud_with_RF-LR-SCV.py:
+	- Ad_Fraud_with_RF-LR-LSVC.ipynb and Ad_Fraud_with_RF-LR-LSVC.py:
 		This is the code file which implements Logistic Regression, Random Forrest, LinearSVC classification models with different sampling techniques.
 
 	- Ad_Fraud_with_CatBoost.ipynb and Ad_Fraud_with_CatBoost.py : 
@@ -57,7 +71,14 @@
 		This is the code file which implements LightGBM Classification model with different sampling techniques.  
 
 
-### Instructions to Create Cluster on AWS ElasticMapReduce:
+### Order of Running the code:
+	- 1st : Run csv_to_parquet.py with spark-submit csv_to_parquet.py command
+	- 2nd : Run Ad_Fraud_with_RF-LR-LSVC.py with spark-submit Ad_Fraud_with_RF-LR-LSVC.py command.
+	- 3rd : Run Ad_Fraud_with_CatBoost.py with spark-submit Ad_Fraud_with_CatBoost.py command.
+	- 4th : Run Ad_Fraud_with_LightGBM.py with spark-submit Ad_Fraud_with_LightGBM.py command.
+
+
+### Instructions to Create Cluster on AWS ElasticMapReduce and run code :
 	
 	- Create an AWS account.
 	- Create a new AWS VPC for this project. 
@@ -68,16 +89,18 @@
 	- Update the security Inbound rules of the cluster to include you IP address.
 	- Create a new S3 storage Bucket and upload the dataset.
 	- Use SSH keys and Public IP Address of the cluster with puTTY or terminal depending on the operating system to SSH into created cluster.
-	- Use any file tranfer application like WinSCP, to move python files in to EMR Cluster. 
+	- Use any file tranfer application application, to move python files in to EMR Cluster. 
+	- You can use AWS Cloud9 environment to SSH into cluster and run the code
+	- Use spark-submit file_name.py to run pyspark code. 
 
 
-### Instructions to Create Cluster on Databricks:
+### Instructions to Create Cluster on Databricks and run it:
 	
 	- Create a Databricks account.
-	- In compute section create a cluster with above mentioned configuration.
-	- In workspace you can can upload the Jupyter Notebooks or upload python files.
-	- Go the required file and attach the created cluster to the workspace environment.
-	- For running python file use ```spark-submit file_name.py``` in the terminal.
+	- In Compute section create a cluster with above mentioned configuration.
+	- In Workspace section you can can upload the Jupyter Notebooks or python files.
+	- Go the required file and attach the created spark cluster to the workspace environment.
+	- For running code use ```spark-submit file_name.py``` in the terminal.
 
 
 
@@ -87,43 +110,12 @@
 	We tested our python files on Persues Cluster, Amazon ElasticMapReduce Cluster, Databricks Cluster.
 
 	To run files on Persues Cluster.
-		1. SSH into Persues cluster with GMU ID 
+		1. SSH into Persues cluster with GMU ID and patriot password.
+		2. Load files dataset and python files using a file transfering application. (csv_to_parquet.py, Ad_Fraud_with_RF-LR-LSVC, Ad_Fraud_with_CatBoost.py and Ad_Fraud_with_LightGBM.py ) 
+		3. Update the file paths accordingly on all the python files.
+		4. use Spark-submit file_name.py to run and infer the results. 
 
 
-
-	
-
-
-
-
-
-
-
-
-
-	1. Download the TalkingData AdTracking Fraud Detection Challenge Dataset from Kaggle. [link](https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/data).
-
-	2. Use  csv_to_parquet.ipynb or csv_to_parquet.py file to convert train.csv to parquet file.
-
-	3. Use Ad_Fraud_with_RF-LR-SCV.ipynb or  Ad_Fraud_with_RF-LR-SCV.py to infer results from Logistic Regression, Random Forrest, Linear SVC over the sampling methods explained. 
-		- Ad_Fraud_with_RF-LR-SCV.ipynb can be directly uploaded run on Google Colab. Make sure to add all the datafiles required to infer results.
-
-	4. Use Ad_Fraud_with_CatBoost.ipynb or Ad_Fraud_with_CatBoost.py to infer results from CatBoost Classification Model over the sampling methods explained. 
-		- Ad_Fraud_with_CatBoost.ipynb can be directly uploaded and run on Google Colab. Make Sure to add all the datafiles requires to infer the results. 
-
-	5. Use Ad_Fraud_with_LightGBM.ipynb or Ad_Fraud_with_LightGBM.py to infer results from LightGBM Classification Model over the sampling methods explained.
-		- Option 1: You might need to setup and use a cluster with 32GB memory.
-		- Option 2: Use AWS ElasticMapReduce Cluster
-			- Configure a culster with Spark-3.0.2 installed on Hadoop-2.7
-			- Use mx2.large machine to create the cluster. By default it create 1 master node(32GB memory) and 2 slave nodes(32GB memory on each). 
-			- However you can avoid this and have only 1 single master node for our task.
-			- Generate SSH Keys for using the cluster and save it in secure folder.
-			- Update the security Inbound rules of the cluster to include you IP address.
-			- Create a S3 storage Bucket and upload the dataset.
-			- You Can use Jupyter Notebook configured with EMR cluster or terminal to infer results.
-			- Use SSH keys and Public IP Address of the cluster with puTTY or terminal depending on the operating system to SSH into created cluster.
-			- upload the Ad_Fraud_with_LightGBM.py to cluster, update the folder paths and run ```spark-submit Ad_Fraud_with_LightGBM.py``` to infer results.
-		
-	
-
-
+### Results in Jupyter Notebooks
+	- Submitted Jupyter notebooks have results saved in them. 
+	- Jupyter Notebooks can be used to for quick inference of results.
