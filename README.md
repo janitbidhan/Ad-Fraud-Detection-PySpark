@@ -33,10 +33,10 @@
 
 		ScreenShots/
 			1-running-on-persues-errors.png
-			2-running-on-emr-.png
+			2-running-on-emr.png
 		
 
-		Presentation.ppt
+		Presentation.pdf
 		README.md
 		REPORT.pdf
 		video_presentation_link.txt 
