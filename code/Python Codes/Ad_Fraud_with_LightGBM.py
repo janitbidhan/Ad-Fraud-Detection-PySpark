@@ -455,12 +455,14 @@ def diffSampledData(data, isUnderSample=False,isOverSample=False ,isSMOTE=False,
 def filldetails(analysisTable, predictions, sampling, model):
     cf_matrix, ROC, accuracy, F1, precision, recall = getEvalutions(predictions)
     print(sampling, model, ROC, accuracy, F1, precision, recall, cf_matrix)
-    analysisTable.add_row([sampling, model, ROC, accuracy, F1, precision, recall, cf_matrix])
+    analysisTable+=str(sampling) +" , "+ str(model)+" , "+ str(ROC)+" , "+ str(accuracy)+" , "+str(F1)+" , "+ str(precision)+" , "+ str(recall)+" , "+str(cf_matrix)
+    
 
 #Main method to run the specified Machine Learning models. Return Evaluation metrics. In case of Cross Validation, returns Best Model.
 def getResults(sampledData, test, isLR=False, isRF=False, isLSVC=False, isCatBoost=False, isLightGBM=False,isCV=False):
     # Specify the Column Names while initializing the Table
-    analysisTable = PrettyTable(["Sampling", "Model", "ROC", "accuracy", "F1", "precision", "recall", "Matrix"])
+    analysisTable = "\n\n\nOutputs\n"
+    #analysisTable = PrettyTable(["Sampling", "Model", "ROC", "accuracy", "F1", "precision", "recall", "Matrix"])
     results = {}
     testData = getFeaturesData(test, drop=True)
     testData.cache()
