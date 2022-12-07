@@ -8,7 +8,7 @@
 		- Janit Bidhan (jbidhan@gmu.edu)
 		- Sreenivasa Rayaprolu (srayapr@gmu.edu)
 
- #### Contents of README.md 
+ ### Contents of README.md 
  - Folder Structure
  - Instructions to Run the files
 
@@ -42,7 +42,7 @@
 		video_presentation_link.txt 
 ```
 
-## Code Files Description: 
+### Code Files Description: 
 
 	- csv_to_parquet.ipynb and csv_to_parquet.py: 
 		This file converts .csv file to .parquet file and saves it in desired location.
@@ -57,9 +57,31 @@
 		This is the code file which implements LightGBM Classification model with different sampling techniques.  
 
 
+### Instructions to Create Cluster on AWS ElasticMapReduce:
+	
+	- Create an AWS account.
+	- Create a new AWS VPC for this project. 
+	- Configure a culster with Spark-3.0.2 installed on Hadoop-2.7
+	- Use mx2.large machine to create the cluster. By default it create 1 master node(8GB memory) and 2 worker nodes(8GB memory on each). 
+	- It is recommmended to have above architecture of cluster to be able to run the python files.
+	- Generate SSH Keys for using the cluster and save it in secure folder.
+	- Update the security Inbound rules of the cluster to include you IP address.
+	- Create a new S3 storage Bucket and upload the dataset.
+	- Use SSH keys and Public IP Address of the cluster with puTTY or terminal depending on the operating system to SSH into created cluster.
+	- Use any file tranfer application like WinSCP, to move python files in to EMR Cluster. 
 
 
-## Instructions to Run Code and Infer Results
+### Instructions to Create Cluster on Databricks:
+	
+	- Create a Databricks account.
+	- In compute section create a cluster with above mentioned configuration.
+	- In workspace you can can upload the Jupyter Notebooks or upload python files.
+	- Go the required file and attach the created cluster to the workspace environment.
+	- For running python file use ```spark-submit file_name.py``` in the terminal.
+
+
+
+### Instructions to Run Code and Infer Results
 
 	Submitted python files can be run on any cluster. 
 	We tested our python files on Persues Cluster, Amazon ElasticMapReduce Cluster, Databricks Cluster.
