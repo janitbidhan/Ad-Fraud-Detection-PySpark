@@ -1,6 +1,6 @@
 # **CS 657 Mining Massive Datasets** 
 
-### **Final Project: AdTracking Fraud Detection**
+### **Final Project: [AdTracking Fraud Detection](https://youtu.be/IKyB8Jsw8V4)**
 
 
 ### Team : 
@@ -41,7 +41,7 @@
 		Presentation.pdf
 		README.md
 		REPORT.pdf
-		video_presentation_link.txt 
+		video_presentation_link.txt
 ```
 
 ### Downloading Dataset:
