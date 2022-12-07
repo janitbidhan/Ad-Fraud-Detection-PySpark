@@ -15,7 +15,7 @@
 
 ### **Folder Structure**
 
-   ``` 
+   	``` 
     Final Project/ 
 	
 	    code/
@@ -40,7 +40,7 @@
 		README.md
 		REPORT.pdf
 		video_presentation_link.txt 
-```
+	```
 
 ## Code Files Description: 
 
@@ -66,7 +66,7 @@
 
 	To run files on Persues Cluster.
 		1. SSH into Persues cluster with GMU ID 
-		
+
 
 
 	
