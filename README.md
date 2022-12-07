@@ -15,7 +15,7 @@
 
 ### **Folder Structure**
 
-   	``` 
+``` 
     Final Project/ 
 	
 	    code/
@@ -40,7 +40,7 @@
 		README.md
 		REPORT.pdf
 		video_presentation_link.txt 
-	```
+```
 
 ## Code Files Description: 
 
