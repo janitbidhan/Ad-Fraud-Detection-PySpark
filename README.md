@@ -64,8 +64,10 @@
 	Submitted python files can be run on any cluster. 
 	We tested our python files on Persues Cluster, Amazon ElasticMapReduce Cluster, Databricks Cluster.
 
-	To run files on **Persues Cluster**
-	
+	To run files on Persues Cluster.
+		1. SSH into Persues cluster with GMU ID 
+		
+
 
 	
 
