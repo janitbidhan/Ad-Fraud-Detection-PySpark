@@ -59,7 +59,22 @@
 
 
 
-## Instructions to Run Code
+## Instructions to Run Code and Infer Results
+
+	Submitted python files can be run on any cluster. 
+	We tested our python files on Persues Cluster, Amazon ElasticMapReduce Cluster, Databricks Cluster.
+
+	To run files on **Persues Cluster**
+	
+
+	
+
+
+
+
+
+
+
 
 
 	1. Download the TalkingData AdTracking Fraud Detection Challenge Dataset from Kaggle. [link](https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/data).
