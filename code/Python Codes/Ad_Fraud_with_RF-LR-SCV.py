@@ -495,6 +495,7 @@ def diffSampledData(data, isUnderSample=False,isOverSample=False ,isSMOTE=False,
 5. **getEvalutions**: Evaluates predictions with labels and returns the metrics
 """
 
+# Adds all the metrics from different oversampling techniques into table.
 def filldetails(analysisTable, predictions, sampling, model):
     cf_matrix, ROC, accuracy, F1, precision, recall = getEvalutions(predictions)
     print(sampling, model, ROC, accuracy, F1, precision, recall, cf_matrix)
