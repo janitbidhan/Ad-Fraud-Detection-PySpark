@@ -1,11 +1,11 @@
 # **CS 657 Mining Massive Datasets** 
 
-## **Final Project: AdTracking Fraud Detection**
+### **Final Project: AdTracking Fraud Detection**
 
 
 ### Team : 
-**Janit Bidhan** - [jbidhan@gmu.edu](jbidhan@gmu.edu)
-**Sreenivasa Rayaprolu** - [srayapr@gmu.edu](srayapr@gmu.edu)
+- **Janit Bidhan** - [jbidhan@gmu.edu](jbidhan@gmu.edu)
+- **Sreenivasa Rayaprolu** - [srayapr@gmu.edu](srayapr@gmu.edu)
 
 ### Contents of README.md 
  - Folder Structure
