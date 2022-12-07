@@ -4,8 +4,8 @@
 
 
 ### Team : 
-**Janit Bidhan** - [jbidhan@gmu.edu](jbidhan@gmu.edu)
-**Sreenivasa Rayaprolu** - [srayapr@gmu.edu](srayapr@gmu.edu)
+-**Janit Bidhan** - [jbidhan@gmu.edu](jbidhan@gmu.edu)
+-**Sreenivasa Rayaprolu** - [srayapr@gmu.edu](srayapr@gmu.edu)
 
 ### Contents of README.md 
  - Folder Structure
