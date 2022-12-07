@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1I--6d3Yqj2tbXgtZZsemcR2zGUzmgxZ5
 """
 
-!pip install pyspark
+#!pip install pyspark
 
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("MapReduceFinalProject-FileConversion-CSVtoParquet").getOrCreate()
