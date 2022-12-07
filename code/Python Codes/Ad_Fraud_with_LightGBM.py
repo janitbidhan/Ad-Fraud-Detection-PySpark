@@ -83,8 +83,8 @@ from mmlspark.lightgbm import LightGBMClassifier
 """# Data Stats Functions
 
 
-1.   **checkNullsInData**: Returns percentage of rows with Null against the Total Rows
-2.   **checkNullPerTable**: Returns number of Null records full table.
+1. **checkNullsInData**: Returns percentage of rows with Null against the Total Rows
+2. **checkNullPerTable**: Returns number of Null records full table.
 3. **getAttributeCount** : Returns the count for each label.
 4. **getCompleteSummary**: Returns the complete summary of the table.
 
