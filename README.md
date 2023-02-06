@@ -103,15 +103,6 @@
 - For running code use ```spark-submit file_name.py``` in the terminal.
 
 
-
-### Instructions to Run Code and Infer Results on Persues
-
-- SSH into Persues cluster with GMU ID and patriot password.
--  Load files dataset and python files using a file transfering application. (csv_to_parquet.py, Ad_Fraud_with_RF-LR-LSVC, Ad_Fraud_with_CatBoost.py and Ad_Fraud_with_LightGBM.py ) 
-- Update the file paths accordingly on all the python files.
-- use Spark-submit file_name.py to run and infer the results. 
-
-
 ### Results in Jupyter Notebooks
 - Submitted Jupyter notebooks have results saved in them. 
 - Jupyter Notebooks can be used to for quick inference of results.
